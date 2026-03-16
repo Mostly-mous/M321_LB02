@@ -11,7 +11,7 @@ function App() {
 
   //Setting up Websocket connection
   useEffect(() => {
-    const newSocket = new WebSocket("ws://localhost:5000");
+    const newSocket = new WebSocket("ws://localhost:6000");
     setSocket(newSocket);
 
     //Event Listener for onOpen-Event
@@ -36,7 +36,7 @@ function App() {
       console.log("WebSocket error: ", error );
     };
 
-    //cleanup function for dissmount
+    //cleanup function for dismount
     return () => {
       newSocket.close();
     };
