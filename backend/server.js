@@ -12,7 +12,7 @@ app.use(cors());
 
 //creating server
 const server = http.createServer(app);
-const wss = new WebSocket.Server({server});
+const wss = new WebSocket.Server({ server });
 
 //Event listener for connection event
 wss.on('connection', (ws) => {
@@ -37,7 +37,7 @@ wss.on('connection', (ws) => {
 });
 
 //Starting Server
-const PORT = 5000;
+const PORT = 6000;
 server.listen(PORT, () => {
     //Log message to confirm server start
     console.log(`Server is Listening on port: ${PORT}`);
