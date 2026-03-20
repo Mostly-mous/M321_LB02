@@ -30,8 +30,8 @@ app.use(express.json());
 app.use(express.static('../frontend'));
 
 //Database Configuration
-const MONGO_URI = process.env.MONGO_URI;
-const MONGO_DB = process.env.MONGO_DB;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+const MONGO_DB = process.env.MONGO_DB || 'chatdb';
 
 let db;
 let usersCollection;
@@ -56,7 +56,7 @@ async function connectToDatabase() {
 
         return client;
     } catch (error) {
-        console.log('Connection Error while connectiong to MongoDB:', error.message);
+        console.log('Connection Error while connecting to MongoDB:', error.message);
         process.exit(1);
     }
 }

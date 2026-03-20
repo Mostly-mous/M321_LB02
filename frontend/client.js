@@ -33,7 +33,7 @@ function initSocket() {
     //establish connection
     socket.on('connect', () => {
         console.log('Connected to server.');
-        connectionStatus.innerHTML = '<span class="status-dot></span> Connected';
+        connectionStatus.innerHTML = '<span class="status-dot"></span> Connected';
         connectionStatus.classList.remove('disconnected');
     });
 
@@ -119,6 +119,17 @@ function updateUserList(users) {
 
         userList.appendChild(li);
     });
+}
+
+/**
+ * Security function: HTML-Escape for inputs
+ * @param {string} text - text to escape
+ * @returns {string} - escape text
+ */
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
 /**
